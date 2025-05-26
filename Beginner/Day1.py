@@ -83,18 +83,15 @@
 
 #Funcion es Par o Impar
 
-def par_o_impar(n):
-    if n % 2 == 0:
-        return "Es Par"
-    else:
-        return "Es impar"
+# def par_o_impar(n):
+#     if n % 2 == 0:
+#         return "Es Par"
+#     else:
+#         return "Es impar"
 
-for num in range(1, 21):
-    res = par_o_impar(num)
-    print(f"El numero {num} es {res}")
-    
-
-        
+# for num in range(1, 21):
+#     res = par_o_impar(num)
+#     print(f"El numero {num} es {res}")
 
 
 
