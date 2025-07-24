@@ -77,42 +77,42 @@ Queremos construir una función que reciba una lista de tuplas con el formato:
 ]
 Y que devuelva un diccionario con pares de estudiantes que comparten al menos un curso, indicando cuántos cursos comparten.
 '''
-from collections import defaultdict, Counter
-from itertools import combinations
+# from collections import defaultdict, Counter
+# from itertools import combinations
 
-def group_by_course(data):
-    res = defaultdict(set)
-    for student, course in data:
-        res[course].add(student)
-    return dict(res)
+# def group_by_course(data):
+#     res = defaultdict(set)
+#     for student, course in data:
+#         res[course].add(student)
+#     return dict(res)
 
-def count_shared_courses(courses):
-    shared = Counter()
-    for students in courses.values():
-        for pair in combinations(sorted(students), 2):
-            shared[pair] += 1
-    return dict(shared)
+# def count_shared_courses(courses):
+#     shared = Counter()
+#     for students in courses.values():
+#         for pair in combinations(sorted(students), 2):
+#             shared[pair] += 1
+#     return dict(shared)
 
-def print_shared_courses(shared):
-    if not shared:
-        print("No hay estudiantes que compartan cursos.")
-        return
-    for (a, b), count in sorted(shared.items()):
-        print(f"{a} y {b} comparten {count} curso(s).")
+# def print_shared_courses(shared):
+#     if not shared:
+#         print("No hay estudiantes que compartan cursos.")
+#         return
+#     for (a, b), count in sorted(shared.items()):
+#         print(f"{a} y {b} comparten {count} curso(s).")
 
-# Datos de ejemplo
-data = [
-    ('Lalo', 'Python'),
-    ('Ana', 'Python'),
-    ('Lalo', 'Java'),
-    ('Carlos', 'Java'),
-    ('Carlos', 'C++'),
-    ('Ana', 'C++')
-]
+# # Datos de ejemplo
+# data = [
+#     ('Lalo', 'Python'),
+#     ('Ana', 'Python'),
+#     ('Lalo', 'Java'),
+#     ('Carlos', 'Java'),
+#     ('Carlos', 'C++'),
+#     ('Ana', 'C++')
+# ]
 
-grouped = group_by_course(data)
-shared = count_shared_courses(grouped)
-print_shared_courses(shared)
+# grouped = group_by_course(data)
+# shared = count_shared_courses(grouped)
+# print_shared_courses(shared)
     
     
     
