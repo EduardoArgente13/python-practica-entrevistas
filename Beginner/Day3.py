@@ -1,87 +1,46 @@
-#Dado un arreglo de enteros regresa el numero que mas aparece y cuantas veces aparece
-# def mostRepeated(nums):
-#     if not nums:
-#         return None
+#Escribe un programa que pida un número y diga si es positivo, negativo o cero.
+def qualification(number):
+    if not number:
+        return None
     
-#     seen = {}
-    
-#     for num in nums:
-#         seen[num] = seen.get(num, 0) + 1
-    
-#     most_repeated = None
-#     max_count = 0
-    
-#     for value, count in seen.items():
-#         if count > max_count:
-#             max_count = count
-#             most_repeated = value
-            
-#     print(f"El valor mas repetido es: {most_repeated}")
-#     print(f"Se repite: {max_count} veces")
-
-# nums = [1, 1, 2, 3, 2, 1, 4, 2, 2]
-# print(mostRepeated(nums))
-
-# Dado un arreglo de enteros regresa LOS NUMEROS que mas se repiten y la frequencia, si son mas de uno o solo 1
-# def mostRepeatedNums(nums):
-#     if not nums:
-#         return None
-#     seen = {}
-    
-#     for num in nums:
-#         seen[num] = seen.get(num, 0) + 1
+    if number == 0:
+        type = "Zero"
+    elif number > 0:
+        type = "Positive"
+    else:
+        type = "Negative"
         
-#     repeated = []
-#     max_count = 0
-    
-#     for value, count in seen.items():
-#         if count > max_count:
-#             max_count = count
-#             repeated = [value]
-#         elif count == max_count:
-#             repeated.append(value)
+    return type
         
-#     return (repeated, max_count)
-
-
-# nums = [1, 2, 2, 3, 3, 4, 4, 4]
-# print(mostRepeatedNums(nums))
-
-
-#Dado un arreglo de enteros nums y un entero k, devuelve los k elementos mas frecuentes en el arreglo. El orden no importa
-# def topKFrequent(nums, k):
-#     if not nums or k <= 0:
-#         return []
-
-#     seen = {}
-#     for num in nums:
-#         seen[num] = seen.get(num, 0) + 1
-
-#     # Ordenamos las tuplas por frecuencia descendente
-#     sorted_items = sorted(seen.items(), key=lambda x: x[1], reverse=True)
-
-#     # Devolvemos solo los k valores más frecuentes
-#     return [item[0] for item in sorted_items[:k]]
-
-
-# print(topKFrequent([1, 1, 1, 2, 2, 3], 2))  # Output esperado: [1, 2]
-
-
-#Group Anagrams: Dado un arreglo de string, agrupalos en grupos de anagramas
-
-# def groupAnagrams(strs):
-#     if not strs:
-#         return []
-    
-#     seen = {}
-    
-#     for word in strs:
-#         key = ''.join(sorted(word))
-#         if key not in seen:
-#             seen[key] = []
-#         seen[key].append(word)
         
-#     return list(seen.values())
+
+#Crea una lista de 5 nombres y recórrela con un for imprimiendo: "Hola, <nombre>".
+
+def name_list(names):
+    if not names:
+        return []
     
-# strs = ["eat", "tea", "tan", "ate", "nat", "bat"]
-# print(groupAnagrams(strs))        
+    for name in names:
+        print(f"Hola, {name}")
+        
+
+#Haz un programa que cuente del 1 al 10 con un while.
+
+
+x = 1
+    
+while x < 11:
+    print(x)
+    x += 1
+        
+
+#Extra: crea una lista vacía y usa un for para llenarla con los números del 1 al 5.
+
+empty = []
+
+for i in range(1, 6):
+    empty.append(i)
+
+print(empty)
+
+    

@@ -1,84 +1,54 @@
-# intersection of Two Arrays
+#Day 2
 
-# def intersect(nums1, nums2):
-#     if not nums1 or not nums2:
-#         return []
-    
-#     res = []
-#     count = {}
-    
-#     for num in nums1:
-#         count[num] = count.get(num, 0) + 1
-        
-#     for num in nums2:
-#         if num in count and count[num] > 0:
-#             res.append(num)
-#             count[num] -= 1
-            
-#     return res
+a = 15
+b = 4
 
-# print(intersect([1,2,2,1], [2,2]))  # → [2, 2]
-# print(intersect([4,9,5], [9,4,9,8,4]))  # → [4,9] o [9,4]
+suma = a + b
+resta = a - b
+mult = a * b
+div = a / b
+power = 7 ** 3
 
+print(f"Suma = {suma}")
+print(f"Resta = {resta}")
+print(f"Multiplicación = {mult}")
+print(f"División = {div}")
+print(f"Potencia = {power}")
 
-# Valid Anagram
-
-# def isAnagram(s, t):
-#     if len(s) != len(t):
-#         return False
-    
-#     count = {}
-    
-#     for char in s:
-#         count[char] = count.get(char, 0) + 1
-    
-#     for char in t:
-#         if char not in count or count[char] == 0:
-#             return False
-#         count[char] -= 1
-        
-#     return True
-    
-# print(isAnagram("listen", "silent"))  # True
-# print(isAnagram("rat", "car"))        # False
-# print(isAnagram("aacc", "ccac"))      # False
+if 15 % 2 == 0:
+    print("par")
+else:
+    print("impar")
 
 
-# Two Sum
-
-def TwoSum(nums, target):
-    seen = {}
-    
-    for i, num in enumerate(nums):
-        complement = target - num
-        if complement in seen:
-            return [seen[complement], i]
-        seen[num] = i
-        
-        
-#First unique Character in a Sring
-
-def first_unique(s):
-    if not s:
-        return -1
-    
-    count = {}
-    
-    for char in s:
-        count[char] = count.get(char, 0) + 1
-        
-    
-    for idx, char in enumerate(s):
-        if count[char] == 1:
-            return idx
-    
-    return -1
+# Conversión de edad
+age_string = "26"
+age = int(age_string)
+print(f"Tengo {age*12} meses o {age*12*30} días de edad")
 
 
-print(first_unique("leetcode"))       # 0
-print(first_unique("loveleetcode"))   # 2
-print(first_unique("aabb"))           # -1
+# Calculadora
+def calculator(input1, input2):
+    return {
+        "addition": input1 + input2,
+        "substraction": input1 - input2,
+        "multiplication": input1 * input2,
+        "division": input1 / input2,
+    }
 
-    
-    
 
+# Par/Impar y Positivo/Negativo/Cero
+def odd_even(value):
+    if value % 2 == 0:
+        type1 = "Even"
+    else:
+        type1 = "Odd"
+
+    if value == 0:
+        type2 = "Zero"
+    elif value > 0:
+        type2 = "Positive"
+    else:
+        type2 = "Negative"
+
+    print(f"The number {value} is {type1} and {type2}")

@@ -1,136 +1,67 @@
-# Dado un string, encuentra el caracter que mas veces aparece
+#Day 4
 
-# def mostFrequentChar(s):
-#     if not s:
-#         return None
+'''1. format_name
+Escribe format_name(nombre, apellido, *, mayus=False) que regrese "Apellido, Nombre".
+Si mayus=True, regresa en MAYÚSCULAS.'''
+
+def format_name(name, lastname, upper=False):
+    if upper == True:
+        lastname = lastname.upper()
+        name= name.upper()
+    return lastname + ", " +name
+
+print(format_name(name="Lalo", lastname="Argente", upper=True))
+
+'''2. stats
+stats(nums) regresa tres valores: (mínimo, máximo, promedio).
+Si la lista está vacía → ValueError.'''
+
+def stats(nums):
+    if not nums:
+        raise ValueError("La lista está vacía")
     
-#     seen = {}
-#     most_freq = ""
-#     max_count = 0
+    mx = max(nums)
+    mn = min(nums)
+    avg = sum(nums) / len(nums)
     
-#     for char in s:
-#         seen[char] = seen.get(char, 0) + 1
-        
-#     for value, count in seen.items():
-#         if count > max_count:
-#             max_count = count
-#             most_freq = value
-        
-#     return (most_freq, max_count)
-
-# print(mostFrequentChar("banana"))
-
-
-#Dada una cade s, encuentra el primer caracter no repetido y retorna su indice. Si todo los caracteres se repiten regresa -1
-
-# def first_unique_char(s):
-#     if not s:
-#         return -1
-
-#     seen = {}
+    return (mn, mx, avg)
     
-#     for char in s:
-#         seen[char] = seen.get(char, 0) + 1
+nums = [1, 2, 3, 4, 5]
+print(stats(nums))
 
-#     for i, char in enumerate(s):
-#         if seen[char] == 1:
-#             return i
-        
-#     return -1
+'''3. safe_div
+safe_div(a, b, *, decimals=2) divide a/b y redondea a decimals.
+Si b == 0 → regresa None (usa guard clause).'''
 
-# print(first_unique_char("leetcode"))       # 0
-# print(first_unique_char("loveleetcode"))   # 2
-# print(first_unique_char("aabb"))           # -1
-
-
-
-# Dada una lista de palabras, encuetra todas las palabras que no se repiten y preservalas en orden
-
-# def unique_words(strs):
-#     if not strs:
-#         return []
+def safe_div(a, b, decimals=2):
+    if b == 0:
+        return None
     
-#     seen = {}
-#     for word in strs:
-#         seen[word] = seen.get(word, 0) + 1
+    res = round(a / b, decimals)
     
-#     res = []
-#     for word in strs:
-#         if seen[word] == 1:
-#             res.append(word)
-            
-#     return res
-
-# print(unique_words(["apple", "banana", "apple", "cherry", "banana", "durian"]))
+    return res
 
 
-# Validar si los parentesis en una cade estan balanceados y bien cerrdos
+'''4. apply_all
+apply_all(func, *args, **kwargs) llama a func(*args, **kwargs) y regresa una tupla: (resultado, tipo_del_resultado).'''
 
-# def is_valid_parenthesis(s):
-#     stack = []
-#     mapping = {')':'(', ']':'[', '}':'{'}
-    
-#     for char in s:
-#         if char in mapping.values():
-#             stack.append(char)
-#         elif char in mapping:
-#             if not stack or stack.pop() != mapping[char]:
-#                 return False
-#     return not stack
+def apply_all(func, *args, **kwargs):
+    var = func(*args, **kwargs)
+    return var, type(var)
 
 
-# Escribe una función que verifique si una cadena de solo paréntesis ()[]{} está bien balanceada
+'''5. inplace_or_copy
+inplace_or_copy(lista, x, *, inplace=True)
 
-# def isBalanced(s):
-#     if not str:
-#         return False
-    
-#     stack = []
-#     mapping = {')':'(', ']':'[', '}':'{'}
-    
-#     for char in s:
-#         if char in mapping.values():
-#             stack.append(char)
-#         elif char in mapping:
-#             if not stack or stack[-1] != mapping[char]:
-#                 return False
-#             stack.pop()
-#         else:
-#             continue
-    
-#     return not stack
+Si inplace=True, agrega x modificando la lista original y la regresa.
 
-# print(isBalanced("([]{})"))   # ✅ True
-# print(isBalanced("([)]"))     # ❌ False
-# print(isBalanced("{[()]}"))   # ✅ True
-# print(isBalanced("((("))      # ❌ False
-# print(isBalanced(""))         # ✅ True (según convención)
+Si False, trabaja sobre una copia y regresa la nueva lista (la original intacta).'''
 
-
-# Dado un string s que contiene letras y paréntesis '(' y ')', elimina el mínimo número de paréntesis para que la cadena sea válida (balanceada). Devuelve el string resultante.
-
-# def minRemoveToMakeValid(s):
-#     if not s:
-#         return ""
-    
-#     s = list(s)
-#     stack = []
-    
-#     for i, char in enumerate(s):
-#         if char == '(':
-#             stack.append(i)
-#         elif char == ')':
-#             if stack:
-#                 stack.pop()
-#             else:
-#                 s[i] = ''
-    
-#     for i in stack:
-#         s[i] = ''
-
-#     return ''.join(s)
-
-# print(minRemoveToMakeValid("a)b(c)d"))      # ab(c)d
-# print(minRemoveToMakeValid("))(("))         # ""
-# print(minRemoveToMakeValid("(a(b(c)d)"))    # a(b(c)d)
-
+def inplace_or_copy(lista, x, inplace=True):
+    if inplace == True:
+        lista.append(x)
+        return lista
+    else:
+        new_list = lista.copy()
+        new_list.append(x)
+        return new_list
