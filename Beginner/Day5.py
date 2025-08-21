@@ -1,140 +1,100 @@
-# Funcion que transforme un string a palabras y que regrese un diccionario con la cuenta de esas palabras
+# Day 5
+'''Ejemplo 1: Listas y Tuplas'''
+# frutas = ["manzana", "pera", "uva"]
+# frutas.append("mango")
+# frutas.remove("pera")
+# frutas_tuple = tuple(frutas)
+# print(frutas_tuple)
 
-# def count_words(s):
-#     if not s:
-#         return None
-    
-#     frequency = {}
-#     words = s.split()
-    
-#     for word in words:
-#         frequency[word] = frequency.get(word, 0) + 1
+'''Ejercicio 1'''
+# numeros = [10, 20, 30, 40, 50]
+
+# print(numeros[0])
+# print(numeros[-1])
+# numeros_tuple = tuple(numeros)
+# print(numeros_tuple[1])
+
+# numeros_tuple[1] = 999
+
+'''Ejercicio 2'''
+# 1. len() → longitud
+# frutas = ["manzana", "uva", "mango"]
+# print(len(frutas))
+
+# 2. in → preguntar si un elemento está en la lista
+# print("uva" in frutas)      # True
+# print("pera" in frutas)     # False
+
+# 3. Slicing (rebanar listas)
+# [inicio:fin] → corta desde inicio hasta fin.
+# [::] → puedes usar pasos.
+# numeros = [10, 20, 30, 40, 50]
+# print(numeros[1:4])   # [20, 30, 40]
+# print(numeros[:3])    # [10, 20, 30]
+# print(numeros[::2])   # [10, 30, 50]
+
+# 4. sorted() y .sort()
+
+# sorted() crea una nueva lista ordenada.
+# .sort() modifica la lista existente.
+# nums = [5, 2, 9, 1]
+# print(sorted(nums))   # [1, 2, 5, 9]
+# nums.sort()
+# print(nums)           # [1, 2, 5, 9]
+
+'''Ejercicio 2'''
+# numeros = [8, 3, 15, 6, 1, 20]
+
+# print(len(numeros))
+# print(15 in numeros)
+# print(numeros[:3])
+# print(sorted(numeros))
+
+
+'''Ejercicio 3'''
+
+# valores = [100, 200, 300, 400, 500]
+
+# print(valores[-1])
+# print(valores[1:4])
+# print(sorted(valores, reverse=True))
+
+
+'''Ejercicio 4'''
+# nombres = ["Ana", "Luis", "Pedro"]
+
+# nombres.append("Maria")
+# nombres[nombres.index("Luis")] = "Carlos"
+# tuple_names = tuple(nombres)
+# print(tuple_names)
+
+
+'''Ejercicio 5'''
+# edades = [18, 25, 30, 22, 40, 35]
+
+# print(len(edades))
+# mayores = [edad for edad in edades if edad > 25]
+# print(mayores)
+# print(edades.sort())
+
+
+'''Ejercicio 6'''
+# nums = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+# print(nums[1::2])
+# print(nums[-3:])
+# tuple_nums = tuple(sorted(nums, reverse=True))
+# print(tuple_nums)
+
+'''Ejercicio 7'''
+
+mezcla = [15, 2, 9, 8, 33, 14, 7, 20, 3]
+
+pairs = [m for m in mezcla if m % 2 == 0]
+print(pairs)
+tuple_pairs = tuple(sorted(pairs))
+print(tuple_pairs)
+
         
-#     return frequency
-
-# s = "el sol brilla el cielo es azul el mar es azul"
-# print(count_words(s))
 
 
-#n Regresar la palabra mas frecuante de un string
-
-# def most_frequent_word(s):
-#     if not s:
-#         return None
-    
-#     freq = {}
-#     words = s.split()
-    
-#     for word in words:
-#         freq[word] = freq.get(word, 0) + 1
-    
-#     most_common = ""
-#     max_count = 0
-    
-#     for word, count in freq.items():
-#         if count > max_count:
-#             max_count = count
-#             most_common = word
-            
-#     return(most_common, max_count)
-
-# s = "el sol brilla el cielo es azul el mar es azul"
-# print(most_frequent_word(s))
-
-
-# Escribe una función que reciba un string s y devuelva una lista de todas las palabras que se repiten exactamente una sola vez.
-
-# def least_frequent_words(s):
-#     if not s:
-#         return []
-    
-#     freq = {}
-#     words = s.split()
-    
-#     for word in words:
-#         freq[word] = freq.get(word, 0) + 1
-    
-#     res = []
-    
-#     for word in words:
-#         if freq[word] == 1:
-#             res.append(word)
-    
-#     return res
-
-# s = "sol mar sol cielo luna mar tierra"
-# print(least_frequent_words(s))
-
-
-#Ahora con las palabras que mas se repiten
-
-# def most_frequent_words(s):
-#     if not s:
-#         return []
-    
-#     freq = {}
-#     words = s.split()
-    
-#     for word in words:
-#         freq[word] = freq.get(word, 0) + 1
-        
-#     max_count = max(freq.values())
-#     res = [word for word, count in freq.items() if count == max_count]
-    
-#     return res
-
-# s = "sol mar sol cielo luna mar tierra"
-# print(most_frequent_words(s))
-
-
-
-# Escribe una función que reciba un string, y devuelva una lista de las palabras más frecuentes, ignorando mayúsculas y signos de puntuación.
-
-# import re
-
-# def most_freq_words_v2(s):
-#     if not s:
-#         return []
-    
-#     freq = {}
-#     s_clean = re.sub(r'[^\w\s]', '', s.lower())
-#     words = s_clean.split()
-    
-#     for word in words:
-#         freq[word] = freq.get(word, 0) + 1
-    
-#     res = []
-#     max_count = max(freq.values())
-    
-#     for word, count in freq.items():
-#         if count == max_count:
-#             res.append(word)
-            
-#     return res
-
-# s = "El sol brilla, el mar brilla. ¡El cielo brilla también!"
-# print(most_freq_words_v2(s))
-    
-
-
-# Haz una función que reciba un string y regrese todas las palabras más largas (limpiando signos de puntuación y normalizando mayúsculas/minúsculas).
-
-import re
-
-def large_words(s):
-    if not s:
-        return []
-    
-    words = re.findall(r'\b[a-záéíóúüñ]+\b', s.lower())
-    
-    max_len = max(len(word) for word in words)
-    res = [word for word in words if len(word) == max_len]
-    
-    return res
-
-s = "El avión voló sobre el océano. ¡Qué rápido!"
-print(large_words(s))
-    
-    
-    
-    
